@@ -1,2 +1,4 @@
 .idea
 *.iml
+temp-config.xml
+/Logging
