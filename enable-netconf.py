@@ -1,9 +1,13 @@
-import netmiko, ncclient, argparse, getpass, sys, time, xmltodict, os, logging
-from netmiko import ConnectHandler
+import argparse
+import getpass
+import logging
+import os
+import xmltodict
+
 from ncclient import manager
 from ncclient.xml_ import *
+from netmiko import ConnectHandler
 from xml.etree import ElementTree
-import json
 
 def get_arguments():
     parser = argparse.ArgumentParser(description='Command Line Driven Utility To Enable NETCONF\
@@ -86,7 +90,7 @@ def main():
     
     # Define the NETCONF USERNAME / PASSWORD:
     NETCONF_USER = 'netconf'
-    NETCONF_PASS = 'NCadmin123'
+    NETCONF_PASS = 'Nokia123!'
 
     # start logging
     netmiko_logging()
@@ -117,8 +121,8 @@ def main():
                 '/configure system security profile "netconf" netconf base-op-authorization lock',
                 '/configure system security profile "netconf" netconf base-op-authorization kill-session',
                 f'/configure system security user netconf access netconf',
-                f'/configure system security user netconf password NCadmin123', 
-                f'/configure system security user netconf console member NCadmin123',
+                f'/configure system security user netconf password Nokia123!',
+                f'/configure system security user netconf console member Nokia123!',
                 f'/configure system security user netconf console member "administrative"',
                 '/configure system management-interface yang-modules nokia-modules', 
                 '/configure system management-interface yang-modules no base-r13-modules',
