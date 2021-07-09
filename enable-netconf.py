@@ -79,7 +79,13 @@ def createFolder(directory):
             os.makedirs(directory)
     except OSError:
         print('Error: Creating directory. ' + directory)
-        
+def read_file(filename):
+    f = open(filename, 'r')
+    output = f.read().splitlines()
+    output = [ line for line in output if line ]
+    f.close()
+    return output
+
 def main():
     # Extract the Arguements from ARGSPARSE:
     args = get_arguments()
